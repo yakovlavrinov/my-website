@@ -8,5 +8,18 @@
     --index: calc(1vw + 1vh);
     --gutter: 30px;
     --size-small: 26;
-    --size-big: 36
+    --size-big: 36;
+}
+
+body {
+    background-color: black;
+    color: #fff;
+    font-size: calc(var(--index) * .8);
+    line-height: 1.75;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed
 }
