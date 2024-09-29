@@ -5,7 +5,7 @@ let lastPos = zSpacing / 5;
 let $frames = document.getElementsByClassName("frame");
 let frames = Array.from($frames);
 let zVals = [];
-let animationStarted = false; // Флаг для отслеживания начала анимации
+let animationStarted = false; 
 
 
 window.onscroll = function () {
@@ -26,24 +26,24 @@ window.onscroll = function () {
         let opacity = zVals[i] < Math.abs(zSpacing) / 1.8 ? 1 : 0;
         frame.setAttribute("style", `transform: ${transform}; opacity: ${opacity}`);
         frameMin.setAttribute("style", `height: 1%; width: 1%`);
-        console.log(zVals[4]); // Если карточка достаточно близко
+        console.log(zVals[4]); 
 
-        // Проверяем позицию по оси Z и запускаем анимацию, если она еще не началась
+        
         if (Math.abs(zVals[2]) < 1000 && !animationStarted) {
-            animationStarted = true; // Устанавливаем флаг, чтобы анимация началась только один раз
+            animationStarted = true; 
             let pOne = document.getElementById("runTextOne");
             let pTwo = document.getElementById("runTextTwo");
             pOne.textContent = "";
-            pTwo.textContent = ""; // очищаем содержимое элемента перед началом
+            pTwo.textContent = "";
             const startRunTextOne = (i) => {
                 setTimeout(() => {
-                    pOne.textContent += textOne[i]; // добавляем по одному символу из строки `text`
-                }, i * 30); // задержка для каждого символа увеличивается на 50 мс
+                    pOne.textContent += textOne[i]; 
+                }, i * 30); 
             };
             const startRunTextTwo = (i) => {
                 setTimeout(() => {
-                    pTwo.textContent += textTwo[i]; // добавляем по одному символу из строки `text`
-                }, i * 13); // задержка для каждого символа увеличивается на 50 мс
+                    pTwo.textContent += textTwo[i]; 
+                }, i * 13); 
             };
 
             for (let i = 0; i < textOne.length; i++) {
