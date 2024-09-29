@@ -168,7 +168,7 @@ h4 {
         --gutter: 20px;
         --side-small: 26;
         --side-big: 36;
-        --depth: 2300px;
+        --depth: 2400px;
         --transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1);
     }
 }
