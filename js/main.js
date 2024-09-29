@@ -7,6 +7,7 @@ let frames = Array.from($frames);
 let zVals = [];
 let animationStarted = false; // Флаг для отслеживания начала анимации
 
+
 window.onscroll = function () {
     let top = document.documentElement.scrollTop;
     let delta = lastPos - top;

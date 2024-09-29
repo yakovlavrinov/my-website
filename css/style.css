@@ -162,4 +162,13 @@ h4 {
     box-shadow: 0 0 15px #00ffdd, 0 0 20px #00ffdd;
   }
 
- 
+  @media (max-width: 768px) {
+    :root {
+        --index: calc(1vw + 1vh);
+        --gutter: 20px;
+        --side-small: 26;
+        --side-big: 36;
+        --depth: 2300px;
+        --transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1);
+    }
+}
