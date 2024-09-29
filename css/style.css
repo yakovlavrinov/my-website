@@ -6,9 +6,11 @@
 
 :root {
     --index: calc(1vw + 1vh);
-    --gutter: 30px;
-    --size-small: 26;
-    --size-big: 36;
+    --gutter: 20px;
+    --side-small: 26;
+    --side-big: 36;
+    --depth: 2500px;
+    --transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1);
 }
 
 body {
@@ -16,11 +18,16 @@ body {
     color: #fff;
     font-size: calc(var(--index) * 0.8);
     line-height: 1.75;
+    height: var(--depth);
+}
+
+body::-webkit-scrollbar {
+    width: 0;
 }
 
 .container {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - env(safe-area-inset-bottom));
     position: fixed;
     perspective: 1500px;
 }
@@ -31,10 +38,128 @@ body {
 }
 
 .frame {
+    transform: translateZ(0);
     width: 100%;
     height: 100%;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: var(--transition), opacity 0.75s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
 }
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.frame h2 {
+    text-align: center;
+    font-size: calc(var(--index) * 3.3);
+}
+
+.frame__media {
+    position: relative;
+    width: calc(var(--index) * var(--side-small));
+    height: calc(var(--index) * var(--side-big));
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+.frame__media_left {
+    right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+.frame__media_right {
+    left: calc(var(--side-big) / 2 * var(--index) + var(--gutter));
+}
+
+.frame_bg {
+    background-color: rgb(0 0 0 / 0.87);
+}
+
+
+.horizontal {
+    width: calc(var(--index) * var(--side-big));
+    height: calc(var(--index) * var(--side-small));
+    left: calc(var(--side-big) / 2 * var(--index) + var(--gutter));
+}
+
+.card__text_title h2 {
+    text-align: left;
+    line-height: 1;
+}
+
+.card__text_p {
+    font-size: calc(var(--index) * 1.8);
+    margin-top: 35px;
+}
+
+.container-p{
+    height: calc(var(--index) * 6);
+}
+.borderRadius{
+    border-radius: 30%;
+}
+
+.frame_contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 242, 0.6), 0 0 20px rgba(0, 255, 242, 0.4), 0 0 25px rgba(0, 255, 242, 0.3);
+  }
+  
+  .frame_contacts h2 {
+    color: #fff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    margin-bottom: 20px;
+  }
+  
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-btn img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-btn img:hover {
+    transform: scale(1.2);
+    /* box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; */
+  }
+  
+  /* Кнопка скачивания резюме */
+  .download-btn {
+    background-color: #00ffdd;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #00ffdd, 0 0 15px #00ffdd;
+  }
+  
+  .download-btn:hover {
+    background-color: #00d9b5;
+    box-shadow: 0 0 15px #00ffdd, 0 0 20px #00ffdd;
+  }
+
+ 
